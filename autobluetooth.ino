@@ -116,7 +116,7 @@ void goBack(int velocity){
 }
 
 void goForward(int velocity){
-  analogWrite(led1, 128);
+  ledOn();
   motd.run(FORWARD);
   motg.run(FORWARD);
   motd.setSpeed(velocity);
@@ -144,9 +144,9 @@ void goBackLeft(int velocity){
 
 void goLeft(int velocity, int direction){
   ledOn();
-  motg.run(RELEASE);
+  motg.setSpeed(turnSpeed);
   motd.run(direction);
-  motd.setSpeed(velocity/turnRatio);
+  motd.setSpeed(velocity);
 }
 
 
@@ -166,9 +166,9 @@ void goBackRight(int velocity){
 
 void goRight(int velocity, int direction){
   ledOn();
-  motd.run(RELEASE);
+  motd.setSpeed(turnSpeed);
   motg.run(direction);
-  motg.setSpeed(velocity/turnRatio);
+  motg.setSpeed(velocity);
 }
 
 void setSpeed(int velocity){
